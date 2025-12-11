@@ -1,0 +1,45 @@
+# Local Antigravity Configuration
+
+# LLM Settings
+llm:
+  model_path: "G:/Jan/llamacpp/models/lmstudio-community/Qwen3-8B-GGUF/Qwen3-8B-Q4_K_M.gguf"
+  context_size: 8192
+  max_tokens: 2048
+  temperature: 0.7
+  top_p: 0.95
+  top_k: 40
+  gpu_layers: 0  # Start with CPU-only for compatibility
+  threads: 8      # CPU threads to use
+  
+# API Server Settings
+server:
+  host: "127.0.0.1"
+  port: 8000
+  cors_origins:
+    - "http://localhost:8000"
+    - "http://127.0.0.1:8000"
+
+# Tool Permissions
+tools:
+  # File operations
+  allow_file_read: true
+  allow_file_write: true
+  allow_file_delete: false  # Safer to disable by default
+  
+  # Command execution
+  allow_command_execution: true
+  command_timeout: 30  # seconds
+  
+  # Web browsing
+  allow_web_requests: true
+  
+  # Workspace
+  workspace_root: "C:/Users/Impac"
+  
+# Agent Settings
+agent:
+  enable_planning_mode: true
+  enable_execution_mode: true
+  enable_verification_mode: true
+  max_tool_calls_per_turn: 10
+  streaming: true
